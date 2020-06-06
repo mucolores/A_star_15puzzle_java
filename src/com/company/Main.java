@@ -130,7 +130,7 @@ public class Main {
             Counter++;
 
             Current = OPENListHashMap.get(OPENList.get(SmallestIndex));
-            OPENListHashMap.remove(OPENListHashMap.get(OPENList.get(SmallestIndex)).GetDataInString());
+            OPENListHashMap.remove(Current.GetDataInString());
             OPENList.remove(SmallestIndex);
             if(Current.GetHValue() == 0)
             {
@@ -163,11 +163,11 @@ public class Main {
                 //Add this state to OPENList;
                 if(!CLOSEListHashMap.containsKey(SUState.GetDataInString()))
                 {
-                    if(OPENListHashMap.containsKey(SUState.GetDataInString()))
+                    State ToFindState = OPENListHashMap.get(SUState.GetDataInString());
+                    if(ToFindState != null)
                     {
-                        int CurrentIndex;
-                        CurrentIndex = OPENList.indexOf(SUState.GetDataInString());
-                        if(OPENListHashMap.get(OPENList.get(CurrentIndex)).GetFValue() > SUState.GetFValue())
+                        if(ToFindState.GetFValue() > SUState.GetFValue() ||
+                                (ToFindState.GetFValue() == SUState.GetFValue() && ToFindState.GetHValue() > SUState.GetHValue()))
                         {
                             OPENListHashMap.remove(SUState.GetDataInString());
                             OPENListHashMap.put(SUState.GetDataInString(),SUState);
@@ -197,11 +197,11 @@ public class Main {
                 //Add this state to OPENList;
                 if(!CLOSEListHashMap.containsKey(SDState.GetDataInString()))
                 {
-                    if(OPENListHashMap.containsKey(SDState.GetDataInString()))
+                    State ToFindState = OPENListHashMap.get(SDState.GetDataInString());
+                    if(ToFindState != null)
                     {
-                        int CurrentIndex;
-                        CurrentIndex = OPENList.indexOf(SDState.GetDataInString());
-                        if(OPENListHashMap.get(OPENList.get(CurrentIndex)).GetFValue() > SDState.GetFValue())
+                        if(ToFindState.GetFValue() > SDState.GetFValue() ||
+                                (ToFindState.GetFValue() == SDState.GetFValue() && ToFindState.GetHValue() > SDState.GetHValue()))
                         {
                             OPENListHashMap.remove(SDState.GetDataInString());
                             OPENListHashMap.put(SDState.GetDataInString(),SDState);
@@ -231,11 +231,11 @@ public class Main {
                 //Add this state to OPENList;
                 if(!CLOSEListHashMap.containsKey(SLState.GetDataInString()))
                 {
-                    if(OPENListHashMap.containsKey(SLState.GetDataInString()))
+                    State ToFindState = OPENListHashMap.get(SLState.GetDataInString());
+                    if(ToFindState != null)
                     {
-                        int CurrentIndex;
-                        CurrentIndex = OPENList.indexOf(SLState.GetDataInString());
-                        if(OPENListHashMap.get(OPENList.get(CurrentIndex)).GetFValue() > SLState.GetFValue())
+                        if(ToFindState.GetFValue() > SLState.GetFValue() ||
+                                (ToFindState.GetFValue() == SLState.GetFValue() && ToFindState.GetHValue() > SLState.GetHValue()))
                         {
                             OPENListHashMap.remove(SLState.GetDataInString());
                             OPENListHashMap.put(SLState.GetDataInString(),SLState);
@@ -265,11 +265,11 @@ public class Main {
                 //Add this state to OPENList;
                 if(!CLOSEListHashMap.containsKey(SRState.GetDataInString()))
                 {
-                    if(OPENListHashMap.containsKey(SRState.GetDataInString()))
+                    State ToFindState = OPENListHashMap.get(SRState.GetDataInString());
+                    if(ToFindState != null)
                     {
-                        int CurrentIndex;
-                        CurrentIndex = OPENList.indexOf(SRState.GetDataInString());
-                        if(OPENListHashMap.get(OPENList.get(CurrentIndex)).GetFValue() > SRState.GetFValue())
+                        if(ToFindState.GetFValue() > SRState.GetFValue() ||
+                                (ToFindState.GetFValue() == SRState.GetFValue() && ToFindState.GetHValue() > SRState.GetHValue()))
                         {
                             OPENListHashMap.remove(SRState.GetDataInString());
                             OPENListHashMap.put(SRState.GetDataInString(),SRState);
